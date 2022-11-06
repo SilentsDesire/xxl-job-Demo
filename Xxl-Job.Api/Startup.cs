@@ -28,6 +28,7 @@ namespace Xxl_Job.Api
         {
             services.Configure<XxlJobExecutorOptions>(Configuration.GetSection("xxlJob"));
             services.AddXxlJobExecutor(Configuration);
+            services.AddDefaultXxlJobHandlers();// add httpHandler;
             services.AddSingleton<IJobHandler, DemoJobHandler>(); // 添加自定义的jobHandler
             services.AddAutoRegistry(); // 自动注册
             services.AddControllers(); 
